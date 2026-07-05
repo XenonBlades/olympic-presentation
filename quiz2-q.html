@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>クイズ2 - 問題</title>
+<link rel="stylesheet" href="conclusion_data/shared.css">
+<style id="slide-selected-style">
+  [data-slide-selected]::before
+  /* [data-slide-hover-selected]::before */ {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 0px;
+    outline: 2px solid #0f7fff !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+ /* [data-slide-hover-selected], */
+  [data-slide-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-slide-selected],
+  img[data-slide-hover-selected],
+  [data-slide-hover-selected],
+  [item-slide-click-selected],
+  [item-slide-selected] {
+    border: 2px solid #0f7fff !important;
+  }
+
+
+</style></head>
+<body>
+<div class="slide-container" data-screen-label="14 クイズ2問題" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#0d1a3a;">
+
+  <!-- 装飾市松 -->
+  <div data-object="true" data-object-type="shape" class="ichimatsu-bg" style="position:absolute; left:0; top:0; width:1920px; height:40px; z-index:1; background-color:#0d1a3a;"></div>
+  <div data-object="true" data-object-type="shape" class="ichimatsu-bg" style="position:absolute; left:0; top:1040px; width:1920px; height:40px; z-index:1; background-color:#0d1a3a;"></div>
+
+  <!-- QUIZラベル -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:100px; width:800px; height:60px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:30px; color:#b8975a; letter-spacing:0.3em; font-weight:700;">
+      ─ QUIZ ② ─
+    </div>
+  </div>
+
+  <!-- 質問 -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:170px; width:1700px; height:200px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:60px; font-weight:900; color:#ffffff; line-height:1.25;">
+      このピクトグラム、<br>何の競技<span style="color:#b8975a;">でしょう？</span>
+    </div>
+  </div>
+
+  <!-- 画像 - 東京2020ピクトグラム一覧 -->
+  <img data-object="true" data-object-type="image" src="quiz2-q_data/tokyo2020-pictograms.jpg" alt="東京2020ピクトグラム" style="position:absolute; left:280px; top:420px; width:1360px; height:520px; object-fit:contain; z-index:5; background:#ffffff; border:6px solid #b8975a;">
+
+  <!-- キャプション -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:960px; width:1700px; height:70px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:26px; color:#b8975a; letter-spacing:0.05em; text-align:center; font-weight:500; line-height:1.5;">
+      東京2020で使われた50種目のピクトグラム。<br>
+      <span style="color:#ffffff;">言葉なしで、どれだけ「一目で」わかるか、試してみてください。</span>
+    </div>
+  </div>
+
+</div>
+<script defer="defer" src="v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<script src="conclusion_data/slide-inner.js"></script></body></html>

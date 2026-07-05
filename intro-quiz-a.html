@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>導入クイズ - 答え</title>
+<link rel="stylesheet" href="conclusion_data/shared.css">
+<style id="slide-selected-style">
+  [data-slide-selected]::before
+  /* [data-slide-hover-selected]::before */ {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 0px;
+    outline: 2px solid #0f7fff !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+ /* [data-slide-hover-selected], */
+  [data-slide-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-slide-selected],
+  img[data-slide-hover-selected],
+  [data-slide-hover-selected],
+  [item-slide-click-selected],
+  [item-slide-selected] {
+    border: 2px solid #0f7fff !important;
+  }
+
+
+</style></head>
+<body>
+<div class="slide-container" data-screen-label="03 導入クイズ答え" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#f4f1e8;">
+
+  <!-- 上部の市松模様帯 -->
+  <div data-object="true" data-object-type="shape" class="ichimatsu-strip" style="position:absolute; left:0; top:0; width:1920px; height:40px; z-index:1;"></div>
+
+  <!-- ANSWERラベル -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:110px; width:400px; height:60px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:32px; color:#b8975a; letter-spacing:0.3em; font-weight:700;">
+      ─ 答え合わせ ─
+    </div>
+  </div>
+
+  <!-- 答え -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:170px; width:1700px; height:180px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:88px; font-weight:900; color:#0d1a3a; line-height:1.15;">
+      正解は <span style="color:#bc002d;">B</span>。<span style="font-size:52px; color:#1a2f5c;">では、Aは何だったのか？</span>
+    </div>
+  </div>
+
+  <!-- A側カード（薄く） -->
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:180px; top:410px; width:700px; height:560px; background:#ffffff; border:4px solid #6b6b6b; z-index:2; opacity:0.55;"></div>
+
+  <!-- ×マーク -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:660px; top:410px; width:220px; height:110px; z-index:12;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:120px; font-weight:900; color:#bc002d; text-align:right; line-height:1;">×</div>
+  </div>
+
+  <!-- A画像 -->
+  <img data-object="true" data-object-type="image" src="intro-quiz-a_data/sano-emblem.jpg" alt="佐野研二郎エンブレム案" style="position:absolute; left:230px; top:490px; width:600px; height:400px; object-fit:contain; z-index:5; opacity:0.7;">
+
+  <!-- Aキャプション -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:180px; top:900px; width:700px; height:60px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:22px; color:#6b6b6b; text-align:center; font-weight:500;">
+      幻となった、佐野研二郎案（2015年撤回）
+    </div>
+  </div>
+
+  <!-- B側カード（強調） -->
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:1040px; top:410px; width:700px; height:560px; background:#ffffff; border:6px solid #bc002d; z-index:2;"></div>
+
+  <!-- ◯マーク -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1720px; top:400px; width:100px; height:100px; z-index:12;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:110px; font-weight:900; color:#bc002d; text-align:center; line-height:1;">◯</div>
+  </div>
+
+  <!-- B画像 -->
+  <img data-object="true" data-object-type="image" src="quiz1-a_data/tokolo-emblem.jpg" alt="野老朝雄エンブレム" style="position:absolute; left:1090px; top:490px; width:600px; height:400px; object-fit:contain; z-index:5;">
+
+  <!-- Bキャプション -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1040px; top:900px; width:700px; height:60px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:22px; color:#0d1a3a; text-align:center; font-weight:700;">
+      本物：野老朝雄「組市松紋」（2016年決定）
+    </div>
+  </div>
+
+  <!-- コメント -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:1000px; width:1700px; height:50px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:24px; color:#0d1a3a; letter-spacing:0.05em; font-weight:500;">
+      実はAには、日本のオリンピック史に残る<span style="color:#bc002d; font-weight:700;">大スキャンダル</span>が隠れている──
+    </div>
+  </div>
+
+</div>
+<script defer="defer" src="v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<script src="conclusion_data/slide-inner.js"></script></body></html>

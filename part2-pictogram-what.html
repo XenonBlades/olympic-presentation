@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Part 2 - ピクトグラムって？</title>
+<link rel="stylesheet" href="conclusion_data/shared.css">
+<style id="slide-selected-style">
+  [data-slide-selected]::before
+  /* [data-slide-hover-selected]::before */ {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 4px;
+    border-radius: 0px;
+    outline: 2px solid #0f7fff !important;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+ /* [data-slide-hover-selected], */
+  [data-slide-selected] {
+    position: relative;
+    outline: none;
+    cursor: default;
+  }
+
+  img[data-slide-selected],
+  img[data-slide-hover-selected],
+  [data-slide-hover-selected],
+  [item-slide-click-selected],
+  [item-slide-selected] {
+    border: 2px solid #0f7fff !important;
+  }
+
+
+</style></head>
+<body>
+<div class="slide-container" data-screen-label="10 Part2 導入" style="position:relative; width:1920px; height:1080px; overflow:hidden; background:#0d1a3a;">
+
+  <!-- 左側の市松模様パネル -->
+  <div data-object="true" data-object-type="shape" class="ichimatsu-bg" style="position:absolute; left:0; top:0; width:960px; height:1080px; z-index:1; background-color:#0d1a3a;"></div>
+
+  <!-- 右側の紙背景 -->
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:960px; top:0; width:960px; height:1080px; background:#f4f1e8; z-index:2;"></div>
+
+  <!-- PART 2 番号 -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:180px; width:400px; height:100px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:32px; color:#b8975a; letter-spacing:0.4em; font-weight:700;">PART 02</div>
+  </div>
+
+  <!-- 大きな数字 -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:100px; top:240px; width:600px; height:400px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:380px; font-weight:900; color:#f4f1e8; line-height:1; letter-spacing:-0.05em;">2</div>
+  </div>
+
+  <!-- 見出し -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:670px; width:820px; height:220px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:80px; font-weight:900; color:#ffffff; line-height:1.1;">
+      ピクトグラム<br>って？
+    </div>
+  </div>
+
+  <!-- 英語見出し -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:120px; top:940px; width:800px; height:50px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:26px; color:#b8975a; letter-spacing:0.25em; font-weight:500;">
+      What is a Pictogram?
+    </div>
+  </div>
+
+  <!-- 右側 テキスト見出し -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1030px; top:180px; width:820px; height:150px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:44px; font-weight:900; color:#0d1a3a; line-height:1.2;">
+      言葉がわからなくても、<br>ひと目で通じる<span style="color:#bc002d;">絵記号</span>
+    </div>
+  </div>
+
+  <!-- 装飾線 -->
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:1030px; top:390px; width:80px; height:4px; background:#b8975a; z-index:5;"></div>
+
+  <!-- 説明本文 -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1030px; top:430px; width:820px; height:280px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:24px; color:#1a2f5c; line-height:1.9;">
+      ピクトグラムは、20世紀中頃に生まれた
+      <span style="font-weight:700;">「言葉の壁を超えるための絵記号」</span>。<br>
+      オリンピックで初めて試されたのは
+      <span style="color:#bc002d; font-weight:700;">1948年ロンドン大会</span>で、
+      各競技を簡単な絵で表したものが登場しました。<br>
+      しかし、それはまだ「それぞれの絵」に過ぎず、
+      統一されたシステムではありませんでした。
+    </div>
+  </div>
+
+  <!-- 転換 -->
+  <div data-object="true" data-object-type="shape" style="position:absolute; left:1030px; top:770px; width:820px; height:200px; background:#0d1a3a; z-index:3;"></div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1060px; top:790px; width:760px; height:170px; z-index:10;">
+    <div style="font-family:'Noto Serif JP', serif; font-size:28px; color:#b8975a; letter-spacing:0.1em; font-weight:700;">
+      &nbsp;そして、革命が起きた──
+    </div>
+    <div style="font-family:'Noto Serif JP', serif; font-size:38px; font-weight:900; color:#ffffff; line-height:1.3; margin-top:16px;">
+      1964年、東京<span style="color:#bc002d;">。</span>
+    </div>
+  </div>
+
+  <!-- ページ番号 -->
+  <div data-object="true" data-object-type="textbox" style="position:absolute; left:1030px; top:1020px; width:820px; height:40px; z-index:10;">
+    <div style="font-family:'Noto Sans JP', sans-serif; font-size:20px; color:#6b6b6b; letter-spacing:0.2em;">
+      10 / 16 　—　Part 2: ピクトグラム
+    </div>
+  </div>
+
+</div>
+<script defer="defer" src="v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<script src="conclusion_data/slide-inner.js"></script></body></html>

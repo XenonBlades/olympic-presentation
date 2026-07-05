@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>東京オリンピック・デザイン発表 — Presentation</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{
+    width:100%;height:100%;
+    background:#000;
+    overflow:hidden;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+
+  /* ---------- Start screen ---------- */
+  #start-screen{
+    position:fixed; inset:0; z-index:1000;
+    background:#0d1a3a;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:22px; color:#f4f1e8; text-align:center;
+  }
+  #start-screen h1{ font-size:26px; font-weight:600; letter-spacing:.03em; }
+  #start-screen p{ opacity:.65; font-size:14px; line-height:1.7; max-width:520px; }
+  #start-btn{
+    padding:15px 38px; font-size:16px; border-radius:6px; border:0;
+    background:#bc002d; color:#fff; cursor:pointer; letter-spacing:.05em;
+  }
+  #start-btn:hover{ background:#94001f; }
+  .hidden{ display:none !important; }
+
+  /* ---------- Stage ---------- */
+  #stage{
+    position:fixed; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    background:#000;
+  }
+  #canvas{
+    position:relative;
+    width:1920px; height:1080px;
+    transform-origin:center center;
+    box-shadow:0 0 60px rgba(0,0,0,.6);
+    background:#fff;
+  }
+  .slide-frame{
+    position:absolute; top:0; left:0;
+    width:1920px; height:1080px;
+    border:0;
+    pointer-events:none;   /* so it never steals focus/clicks — nav lives in the parent */
+    display:none;
+    background:#fff;
+  }
+  .slide-frame.active{ display:block; }
+
+  #click-catcher{
+    position:absolute; inset:0;
+    z-index:50;
+    cursor:pointer;
+  }
+
+  #hud{
+    position:fixed; bottom:14px; right:20px; z-index:100;
+    color:rgba(255,255,255,.55);
+    font-size:13px; letter-spacing:.05em;
+    user-select:none; pointer-events:none;
+  }
+</style>
+</head>
+<body>
+
+<div id="start-screen">
+  <h1>東京オリンピック・デザイン発表</h1>
+  <p>
+    Space / → : 次へ &nbsp;&nbsp;|&nbsp;&nbsp; ← : 戻る &nbsp;&nbsp;|&nbsp;&nbsp;
+    クリック右側 : 次へ &nbsp;&nbsp;|&nbsp;&nbsp; クリック左側 : 戻る<br>
+    Home / End : 最初 / 最後 &nbsp;&nbsp;|&nbsp;&nbsp; Esc : フルスクリーン終了<br>
+    F11 はブラウザ標準のフルスクリーンとして別途使えます
+  </p>
+  <button id="start-btn">▶ プレゼンを開始（フルスクリーン）</button>
+</div>
+
+<div id="stage" class="hidden">
+  <div id="canvas">
+    <div id="click-catcher"></div>
+  </div>
+  <div id="hud"></div>
+</div>
+
+<script>
+const SLIDES = [
+  "cover.html",
+  "intro-quiz-q.html",
+  "intro-quiz-a.html",
+  "part1-emblem-what.html",
+  "sano-scandal.html",
+  "tokolo-emblem.html",
+  "ichimatsu-history.html",
+  "quiz1-q.html",
+  "quiz1-a.html",
+  "part2-pictogram-what.html",
+  "opening-ceremony.html",
+  "pictogram-1964.html",
+  "pictogram-legacy.html",
+  "quiz2-q.html",
+  "quiz2-a.html",
+  "conclusion.html"
+];
+
+const canvas       = document.getElementById('canvas');
+const stage        = document.getElementById('stage');
+const startScreen  = document.getElementById('start-screen');
+const hud          = document.getElementById('hud');
+const clickCatcher = document.getElementById('click-catcher');
+
+let current = 0;
+const frames = [];
+
+// Build one iframe per slide, stacked in the same position.
+SLIDES.forEach((src) => {
+  const f = document.createElement('iframe');
+  f.className = 'slide-frame';
+  f.src = src;
+  f.setAttribute('tabindex', '-1');
+  f.setAttribute('scrolling', 'no');
+  canvas.insertBefore(f, clickCatcher);
+  frames.push(f);
+});
+
+function updateHUD(){
+  hud.textContent = (current + 1) + ' / ' + SLIDES.length;
+}
+
+function show(index){
+  if (index < 0) index = 0;
+  if (index >= SLIDES.length) index = SLIDES.length - 1;
+  if (index === current && frames[current].classList.contains('active')) return;
+  frames[current].classList.remove('active');
+  current = index;
+  frames[current].classList.add('active');
+  updateHUD();
+}
+
+function next(){ show(current + 1); }
+function prev(){ show(current - 1); }
+
+function fitScale(){
+  const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  canvas.style.transform = 'scale(' + scale + ')';
+}
+window.addEventListener('resize', fitScale);
+
+function enterPresentation(){
+  startScreen.classList.add('hidden');
+  stage.classList.remove('hidden');
+  fitScale();
+  show(0);
+
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+
+  window.focus();
+}
+
+document.getElementById('start-btn').addEventListener('click', enterPresentation);
+
+// Click right half = next, left half = back (PowerPoint-style)
+clickCatcher.addEventListener('click', (e) => {
+  const rect = clickCatcher.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  if (x < rect.width / 2) prev();
+  else next();
+});
+
+// Wheel navigation, debounced so one scroll gesture = one slide
+let wheelLock = false;
+clickCatcher.addEventListener('wheel', (e) => {
+  if (wheelLock) return;
+  if (Math.abs(e.deltaY) < 15) return;
+  wheelLock = true;
+  if (e.deltaY > 0) next(); else prev();
+  setTimeout(() => wheelLock = false, 450);
+}, { passive: true });
+
+document.addEventListener('keydown', (e) => {
+  if (stage.classList.contains('hidden')) return; // not started yet
+  switch (e.key) {
+    case ' ':
+    case 'ArrowRight':
+    case 'PageDown':
+      e.preventDefault();
+      next();
+      break;
+    case 'ArrowLeft':
+    case 'PageUp':
+    case 'Backspace':
+      e.preventDefault();
+      prev();
+      break;
+    case 'Home':
+      show(0);
+      break;
+    case 'End':
+      show(SLIDES.length - 1);
+      break;
+    case 'Escape':
+      if (document.fullscreenElement) document.exitFullscreen();
+      break;
+  }
+});
+
+// Fallback: some slides' own script posts these on arrow/wheel input too.
+window.addEventListener('message', (e) => {
+  if (!e.data || !e.data.type) return;
+  if (e.data.type === 'SLIDE_NEXT') next();
+  if (e.data.type === 'SLIDE_PREV') prev();
+});
+</script>
+</body>
+</html>

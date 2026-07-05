@@ -1,0 +1,49 @@
+/* 東京オリンピック・デザイン発表 共通スタイル */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+  --indigo: #1a2f5c;
+  --indigo-deep: #0d1a3a;
+  --indigo-light: #2c4a7c;
+  --gold: #b8975a;
+  --ink: #0d1a3a;
+  --paper: #f4f1e8;
+  --paper-warm: #ede7d3;
+  --white: #ffffff;
+  --red: #bc002d;
+  --gray: #6b6b6b;
+  --line: #d4c9a8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* 市松模様の背景パターン */
+.ichimatsu-bg {
+  background-image:
+    linear-gradient(45deg, var(--indigo) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--indigo) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--indigo) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--indigo) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+}
+
+.ichimatsu-strip {
+  background-image:
+    linear-gradient(45deg, var(--indigo) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--indigo) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--indigo) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--indigo) 75%);
+  background-color: var(--paper);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
