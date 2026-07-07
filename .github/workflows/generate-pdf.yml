@@ -1,0 +1,26 @@
+name: Generate Presentation PDF
+
+on:
+  workflow_dispatch:   # lets you trigger it manually from the Actions tab
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install puppeteer pdf-lib
+
+      - name: Generate PDF
+        run: node make-pdf.js
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: presentation-pdf
+          path: presentation.pdf
